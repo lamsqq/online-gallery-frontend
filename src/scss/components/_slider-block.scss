@@ -1,0 +1,20 @@
+.slider {
+    background: rgba(0, 0, 0, 0.014);
+    margin-bottom: 100px;
+    height: 800px;
+
+    &__tag {
+        height: 800px;
+
+        &--main {
+            height: 790px;
+            object-fit: contain;
+
+            img {
+                margin: 0 auto;
+                width: 1903px;
+            }
+        }
+    }
+    
+}

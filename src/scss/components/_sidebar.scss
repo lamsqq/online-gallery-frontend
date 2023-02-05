@@ -1,0 +1,52 @@
+@import '../variables';
+
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 25px;
+    left: 46px;
+    top: 13px;
+  }
+  
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .bm-cross {
+    background: $light;
+  }
+
+  .bm-menu-wrap {
+    margin-top: 30px;
+    position: fixed;
+    height: 100%;
+  }
+  
+  .bm-menu {
+    background: $background;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  .menu-item {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0.8em;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 70%;
+        transition: 0.25s ease-in-out;
+    }
+  }
+  
+  .bm-overlay {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.3);
+  }

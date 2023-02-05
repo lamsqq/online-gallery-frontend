@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useContext, useEffect } from 'react'
+import "./scss/app.scss"
+import AppRouter from "./components/AppRouter"
+import Header from "./components/Header"
+import { observer } from 'mobx-react-lite'
+import { Context } from './index'
+import { check } from './http/userAPI'
 
-function App() {
+const App = observer(() => {
+  const {user} = useContext(Context)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      check().then(data => {
+        user.setUser(true)
+        user.setIsAuth(true)
+      }).finally(() => setLoading(false))
+    }, 1000)
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <AppRouter />
     </div>
   );
-}
+})
 
 export default App;

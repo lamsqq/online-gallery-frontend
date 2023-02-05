@@ -1,0 +1,27 @@
+@import '../variables';
+
+.product-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+    width: 1800px;
+
+    &__desc {
+
+
+        p {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+    }
+
+    img {
+        height: 800px;
+        width: 600px;
+        object-fit: contain;
+        margin-right: 100px;
+    }
+
+    
+}

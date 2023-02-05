@@ -1,0 +1,27 @@
+@import 'components/all';
+@import 'pages/all';
+@import './variables';
+
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Bitter', serif;
+    background: $background-main;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 0 200px;
+}
+
+.wrapper {
+    background-color: $dark;
+}
+
+.content {
+    background-color: $dark;
+}

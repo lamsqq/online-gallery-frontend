@@ -1,0 +1,47 @@
+@import '../variables';
+
+.header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    height: 60px;
+    width: 100%;
+    background-color: $background;
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 95%;
+        margin: 0 auto;
+
+        li {
+            color: white;
+            font-family: 'Italiana', serif;
+            font-size: 26px;
+            letter-spacing: 3px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            img {
+                width: 30px;
+                margin-right: 8px;
+            }
+        }
+
+    } 
+}
+
+.icon {
+    height: 34px;
+    width: 34px;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+        color: $light;
+        cursor: pointer;
+        transition: 0.25s ease-in-out;
+    }
+}
