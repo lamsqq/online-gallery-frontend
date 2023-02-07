@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-export default class ProductStore {
+export default class PStore {
     constructor() {
         this._authors = [
             {id: 1, name: 'Анастасия Колесниченко'},
@@ -11,8 +11,8 @@ export default class ProductStore {
             {id: 2, name: 'Картина'}
         ]
         this._pictures = [
-            {id: 1, name: 'Enjoy', price: 15000, size: '70 x 50', country: 'Россия', year: 2021, img: 'https://sample-art.com/wp-content/uploads/2021/11/kolesnichenko-naslazhdatsya-820x1024.jpg'},
-            {id: 2, name: 'Enjoy', price: 15000, size: '70 x 50', country: 'Россия', year: 2021, img: 'https://sample-art.com/wp-content/uploads/2021/11/kolesnichenko-naslazhdatsya-820x1024.jpg'}
+            {id: 1, name: 'Enjoy', price: 15000, size: '70 x 50', country: 'Россия', year: 2021, img: 'https://sample-art.com/sysapi/storage_lazy_sequence/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzIjpbInJzLjIwMDB4MCIsIndlYnAiXSwicCI6ImZzOnJvb3Q6XC91cGxvYWRcL2R5bmFtaWNcLzIwMjMtMDFcLzE2XC82NThfMS1lMDNiNDFiNi5qcGcifQ.p-CGfv12T3wTXWK_dCI9nqitIrObLVQUwLiuaaFiEGo'},
+            {id: 2, name: 'Enjoy', price: 15000, size: '70 x 50', country: 'Россия', year: 2021, img: 'https://sample-art.com/sysapi/storage_lazy_sequence/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzIjpbInJzLjIwMDB4MCIsIndlYnAiXSwicCI6ImZzOnJvb3Q6XC91cGxvYWRcL2R5bmFtaWNcLzIwMjMtMDFcLzE2XC82NThfMS1lMDNiNDFiNi5qcGcifQ.p-CGfv12T3wTXWK_dCI9nqitIrObLVQUwLiuaaFiEGo'}
         ]
         makeAutoObservable(this)
     }

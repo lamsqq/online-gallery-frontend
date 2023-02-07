@@ -1,13 +1,16 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom"
+import { PRODUCT_ROUTE } from "../utilities/consts";
 
-function PictureBlock ({artist, title, price, img}) {
+const PictureBlock = ({picture}) => {
+  const history = useNavigate()
   return (
-      <div className='picture-block'>
-        <img src={img} alt="art1" />
+      <div className='picture-block' onClick={()=> history(PRODUCT_ROUTE + '/' + picture.id)}>
+        <img src={process.env.REACT_APP_API_URL + picture.img} alt="art" />
         <div className='picture-block__desc'>
-            <p>{artist}</p>
-            <h2>{title}</h2>
-            <span>{price}&#8381;</span>
+            {/* <p>{picture.authorId}</p> */}
+            <h2>{picture.name}</h2>
+            <span>{picture.price}&#8381;</span>
         </div>
     </div>
   )

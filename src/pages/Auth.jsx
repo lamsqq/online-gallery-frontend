@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
 import { observer } from 'mobx-react-lite'
-import { Link, useNavigate } from 'react-router-dom'
-import { login, register } from '../http/userAPI'
+import { useLocation, NavLink, useNavigate } from 'react-router-dom'
+import { signup, register } from '../http/userAPI'
 import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from '../utilities/consts'
 import { Context } from '../index'
 
-const Auth = observer( () => {
+const Auth = observer(() => {
   const {user} = useContext(Context)
-  const location = useNavigate()
+  const location = useLocation()
   const history = useNavigate()
   const isLogin = location.pathname === LOGIN_ROUTE
   const [login, setLogin] = useState('')
@@ -17,15 +17,16 @@ const Auth = observer( () => {
     try {
       let data;
       if (isLogin) {
-        data = await login(login, password)
+        data = await signup(login, password);
       } else {
-        data = await register(login, password)
+        data = await register(login, password);
       }
-      user.setUser(user)
+      user.setUser(data)
+      user.setIsUser(data.id)
       user.setIsAuth(true)
       history(HOME_ROUTE)
     } catch (e) {
-      alert(e.response.data.message)
+      console.log(e)
     }  
 
   }
@@ -41,11 +42,11 @@ const Auth = observer( () => {
     
             {isLogin ? 
               <div>Нет акккаунта? 
-                <Link to={REGISTER_ROUTE}>Зарегистрироваться</Link>
+                <NavLink to={REGISTER_ROUTE}> Зарегистрироваться</NavLink>
               </div>
               :
               <div>Уже зарегистрированы?
-                <Link to={LOGIN_ROUTE}>Войти</Link>
+                <NavLink to={LOGIN_ROUTE}> Войти</NavLink>
               </div>
             }
             <button onClick={click}>{isLogin ? 'Войти' : 'Зарегистроваться'}</button>
@@ -55,5 +56,7 @@ const Auth = observer( () => {
     </div>
   )
 })
+
+
 
 export default Auth

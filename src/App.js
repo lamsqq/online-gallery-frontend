@@ -1,4 +1,5 @@
-import { useState, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import "./scss/app.scss"
 import AppRouter from "./components/AppRouter"
 import Header from "./components/Header"
@@ -8,21 +9,23 @@ import { check } from './http/userAPI'
 
 const App = observer(() => {
   const {user} = useContext(Context)
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      check().then(data => {
-        user.setUser(true)
+    check().then(data => {
+        user.setUser(data)
+        user.setIsUser(data.id)
         user.setIsAuth(true)
-      }).finally(() => setLoading(false))
-    }, 1000)
-  }, [])
+    })
+})
+
+
 
   return (
     <div className="App">
-      <Header />
-      <AppRouter />
+      <BrowserRouter>
+        <Header />
+        <AppRouter />
+      </BrowserRouter>
     </div>
   );
 })
