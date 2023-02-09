@@ -16,9 +16,8 @@ const Header = observer(() => {
         user.setUser({})
         user.setIsUser({})
         user.setIsAuth(false)
-        user.setIsAdmin(false)
         localStorage.removeItem('token')
-        window.location.reload();
+        window.location.reload()
     }
 
     return (
@@ -46,7 +45,7 @@ const Header = observer(() => {
                     <div>
                         <Link to={BASKET_ROUTE}><AiOutlineShoppingCart className='icon'/></Link>
                         <Link to={FAVORITE_ROUTE}><AiOutlineHeart className='icon'/></Link>
-                        <span onClick={() => logOut}><AiOutlineLogout className='icon'/></span>
+                        <span onClick={() => user.setUser({}) & user.setIsUser({}) & user.setIsAuth(false) & localStorage.removeItem('token') && window.location.reload() && history(HOME_ROUTE)}><AiOutlineLogout className='icon'/></span>
                     </div>
                 }
             </li>

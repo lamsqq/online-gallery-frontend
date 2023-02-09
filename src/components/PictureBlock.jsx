@@ -8,7 +8,7 @@ const PictureBlock = ({picture}) => {
       <div className='picture-block' onClick={()=> history(PRODUCT_ROUTE + '/' + picture.id)}>
         <img src={process.env.REACT_APP_API_URL + picture.img} alt="art" />
         <div className='picture-block__desc'>
-            {/* <p>{picture.authorId}</p> */}
+            <p>{picture.authorId}</p>
             <h2>{picture.name}</h2>
             <span>{picture.price}&#8381;</span>
         </div>

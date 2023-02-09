@@ -16,9 +16,7 @@ const App = observer(() => {
         user.setIsUser(data.id)
         user.setIsAuth(true)
     })
-})
-
-
+}, [user])
 
   return (
     <div className="App">
