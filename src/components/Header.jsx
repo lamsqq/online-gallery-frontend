@@ -1,24 +1,24 @@
 import React, { useContext } from 'react'
-import { AiOutlineHeart, AiOutlineTool, AiOutlineLogin, AiOutlineShoppingCart, AiOutlineLogout } 
+import { AiOutlineTool, AiOutlineLogin, AiOutlineShoppingCart, AiOutlineLogout } 
 from 'react-icons/ai'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { Link, useNavigate } from 'react-router-dom'
 import { Context } from '../index'
 import { slide as Menu } from 'react-burger-menu'
-import { ADMIN_ROUTE, BASKET_ROUTE, FAVORITE_ROUTE, HOME_ROUTE, LOGIN_ROUTE } from '../utilities/consts'
+import { ADMIN_ROUTE, BASKET_ROUTE, HOME_ROUTE, LOGIN_ROUTE } from '../utilities/consts'
 import { observer } from 'mobx-react-lite'
 
 const Header = observer(() => {
-    const {user} = useContext(Context)
+    const { user } = useContext(Context)
     const history = useNavigate()
 
-    const logOut = () => {
-        user.setUser({})
-        user.setIsUser({})
-        user.setIsAuth(false)
-        localStorage.removeItem('token')
-        window.location.reload()
-    }
+    // const logOut = () => {
+    //     user.setUser({})
+    //     user.setIsUser({})
+    //     user.setIsAuth(false)
+    //     localStorage.removeItem('token')
+    //     window.location.reload()
+    // }
 
     return (
     <div className='header'>
@@ -34,18 +34,15 @@ const Header = observer(() => {
             <Link to="/online-gallery-react"><li>OnlineGallery</li></Link>
             {user.isAuth ?
             <li>
-                {user.isRole === 'ADMIN' ?
+                {user.role === 'ADMIN' ?
                     <div>
                         <Link to={ADMIN_ROUTE}><AiOutlineTool className='icon'/></Link>
-                        <Link to={BASKET_ROUTE}><AiOutlineShoppingCart className='icon'/></Link>
-                        <Link to={FAVORITE_ROUTE}><AiOutlineHeart className='icon'/></Link>
-                        <span onClick={() => logOut}><AiOutlineLogout className='icon'/></span>
+                        <span onClick={() => user.setUser({}) & user.setIsUser({}) & user.setIsAuth(false) & localStorage.removeItem('token') && window.location.reload() & history(HOME_ROUTE)}><AiOutlineLogout className='icon'/></span>
                     </div>
                 :
                     <div>
-                        <Link to={BASKET_ROUTE}><AiOutlineShoppingCart className='icon'/></Link>
-                        <Link to={FAVORITE_ROUTE}><AiOutlineHeart className='icon'/></Link>
-                        <span onClick={() => user.setUser({}) & user.setIsUser({}) & user.setIsAuth(false) & localStorage.removeItem('token') && window.location.reload() && history(HOME_ROUTE)}><AiOutlineLogout className='icon'/></span>
+                        <Link to={ADMIN_ROUTE}><AiOutlineTool className='icon'/></Link>
+                        <span onClick={() => user.setUser({}) & user.setIsUser({}) & user.setIsAuth(false) & localStorage.removeItem('token') && window.location.reload() & history(HOME_ROUTE)}><AiOutlineLogout className='icon'/></span>
                     </div>
                 }
             </li>

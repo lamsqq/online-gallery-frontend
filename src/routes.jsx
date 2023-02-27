@@ -1,10 +1,10 @@
+import { Order } from "./components/Order"
 import Admin from "./pages/Admin"
 import Auth from "./pages/Auth"
 import Basket from "./pages/Basket"
-import Favorite from "./pages/Favorite"
 import Home from "./pages/Home"
 import ProductPage from "./pages/ProductPage"
-import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, BASKET_ROUTE, FAVORITE_ROUTE, HOME_ROUTE, PRODUCT_ROUTE } from "./utilities/consts"
+import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, BASKET_ROUTE, HOME_ROUTE, PRODUCT_ROUTE, ORDER_ROUTE } from "./utilities/consts"
 
 export const authRoutes = [
     {
@@ -16,9 +16,9 @@ export const authRoutes = [
         component: <Basket />
     },
     {
-        path: FAVORITE_ROUTE,
-        component: <Favorite />
-    },
+        path: ORDER_ROUTE,
+        component: <Order />
+    }
 ]
 
 export const publicRoutes = [

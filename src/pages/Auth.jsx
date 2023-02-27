@@ -23,6 +23,7 @@ const Auth = observer(() => {
       user.setUser(data)
       user.setIsUser(data.id)
       user.setIsAuth(true)
+      
     } catch (e) {
       console.log(e)
     }  

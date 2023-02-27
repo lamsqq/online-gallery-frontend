@@ -22,15 +22,15 @@ function SliderBlock() {
         }, 
         {
         id: 3,
-        img: "https://sample-art.com/wp-content/uploads/2022/07/novoe-popova-4-727x1024.jpg"
+        img: "https://sun9-39.userapi.com/impg/s9WSl7YMRZ3J1KNLrnfd5094VcQCydH7vHN2Pg/yO_Di2saQIs.jpg?size=1920x900&quality=96&sign=ed6367cba625c861612043b3e497b126&type=album"
         }, 
         {
         id: 4,
-        img: "https://sample-art.com/wp-content/uploads/2022/08/shei-n-2-1024x845.jpg"
+        img: "https://sun9-39.userapi.com/impg/s9WSl7YMRZ3J1KNLrnfd5094VcQCydH7vHN2Pg/yO_Di2saQIs.jpg?size=1920x900&quality=96&sign=ed6367cba625c861612043b3e497b126&type=album"
         }, 
         {
         id: 5,
-        img: "https://sample-art.com/wp-content/uploads/2021/11/kostareva-Empty-Tram-870x1024.jpg"
+        img: "https://sun9-39.userapi.com/impg/s9WSl7YMRZ3J1KNLrnfd5094VcQCydH7vHN2Pg/yO_Di2saQIs.jpg?size=1920x900&quality=96&sign=ed6367cba625c861612043b3e497b126&type=album"
         }
     ];
   return (
